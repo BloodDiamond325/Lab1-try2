@@ -1,51 +1,62 @@
 public class Smoothie {
 
-    // TODO M4: static counter that drives auto-assigned order numbers
+    // TO DO M4: static counter that drives auto-assigned order numbers
     private static int nextOrderNumber = 1;
 
-    // TODO M1: private instance fields
+    // TO DO M1: private instance fields
     //   name (String)
     //   size (String, "S" / "M" / "L")
     //   basePrice (double)
     //   isStudent (boolean)
 
+    private String name;
+    private String size;
+    private double basePrice;
+    private boolean isStudent;
 
-    // TODO M3: private ArrayList<String> addOns
+
+    // TO DO M3: private ArrayList<String> addOns
 
 
-    // TODO M4: private int orderNumber
+    // TO DO M4: private int orderNumber
 
 
-    // TODO M1: three-argument constructor.
+    // TO DO M1: three-argument constructor.
     //   Set isStudent to false by default.
     //   Chain to the four-arg constructor with this(name, size, basePrice, false).
     public Smoothie(String name, String size, double basePrice) {
+        isStudent = false;
+        this(name, size, basePrice, false);
 
     }
 
-    // TODO M1 + M3 + M4: four-argument constructor.
+    // TO DO M1 + M3 + M4: four-argument constructor.
     //   - assign all four fields
     //   - initialise addOns to a new empty ArrayList<String>
     //   - assign orderNumber from nextOrderNumber, then increment nextOrderNumber
     public Smoothie(String name, String size, double basePrice, boolean isStudent) {
 
+        this.name = name;
+        this.size = size;
+        this.basePrice = basePrice;
+        this.isStudent = isStudent;
     }
 
-    // TODO M1: getters
+    // TO DO M1: getters
     public String getName()      { return null; }
     public String getSize()      { return null; }
     public double getBasePrice() { return 0.0;  }
     public boolean isStudent()   { return false; }
 
-    // TODO M4: getter for orderNumber
+    // TO DO M4: getter for orderNumber
     public int getOrderNumber()  { return 0; }
 
-    // TODO M3: append the given add-on to the addOns list
+    // TO DO M3: append the given add-on to the addOns list
     public void addAddOn(String addOn) {
 
     }
 
-    // TODO M2 + M3: pricing logic
+    // TO DO M2 + M3: pricing logic
     //   1. start with basePrice
     //   2. multiply by size factor (S=1.00, M=1.25, L=1.50)
     //   3. if isStudent, multiply by 0.90 (10% discount)
@@ -55,7 +66,7 @@ public class Smoothie {
         return 0.0;
     }
 
-    // TODO M5: one-line receipt.
+    // TO DO M5: one-line receipt.
     //   Exact format: "#003 [L] Mango Tango ........... $37.75 (student) +ginger +honey"
     //   - order number padded to 3 digits with leading zeros: "%03d"
     //   - size in brackets

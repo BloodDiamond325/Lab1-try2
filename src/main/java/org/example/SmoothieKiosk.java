@@ -17,22 +17,22 @@ public class SmoothieKiosk {
         return 0;
     }
 
-    // TODO M6: totalRevenue — sum of every order's getPrice()
+    // TO DO M6: totalRevenue — sum of every order's getPrice()
     public double totalRevenue() {
         return 0.0;
     }
 
-    // TODO M6: averagePrice — totalRevenue() / orderCount(), or 0.0 if no orders
+    // TO DO M6: averagePrice — totalRevenue() / orderCount(), or 0.0 if no orders
     public double averagePrice() {
         return 0.0;
     }
 
-    // TODO M6: print every order's toString() on its own line, in order
+    // TO DO M6: print every order's toString() on its own line, in order
     public void printAllReceipts() {
 
     }
 
-    // TODO M6: print three lines exactly
+    // TO DO M6: print three lines exactly
     //   "Orders taken: <n>"
     //   "Total revenue: $<total with 2 dp>"
     //   "Average price: $<avg with 2 dp>"
@@ -44,7 +44,7 @@ public class SmoothieKiosk {
 
         SmoothieKiosk kiosk = new SmoothieKiosk();
 
-        // TODO M7: build the five orders from the table in the README:
+        // TO DO M7: build the five orders from the table in the README:
         //   1. Mango Tango,     L, 25.00, student=true,  add-ons: ginger, honey
         //   2. Sorrel Punch,    M, 18.00, student=false, no add-ons
         //   3. Pineapple Bliss, S, 15.00, student=true,  no add-ons
@@ -54,7 +54,7 @@ public class SmoothieKiosk {
         // it to kiosk.takeOrder(...).
 
 
-        // TODO M7: print receipts, then a blank line, then the summary
+        // TO DO M7: print receipts, then a blank line, then the summary
 
     }
 }
