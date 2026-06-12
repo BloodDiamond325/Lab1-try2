@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class SmoothieKiosk {
 
     // TO DO M6: private ArrayList<Smoothie> orders
@@ -5,7 +7,10 @@ public class SmoothieKiosk {
 
     public SmoothieKiosk() {
         // TO DO M6: initialise the orders list to a new empty ArrayList<>()
+        private java.util.ArrayList<Smoothie> orders;
     }
+
+    orders = new ArrayList<Smoothie>;
 
     // TO DO M6: takeOrder — append s to the orders list
     public void takeOrder(Smoothie s) {

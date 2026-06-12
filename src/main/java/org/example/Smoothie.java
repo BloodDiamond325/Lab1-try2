@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Smoothie {
 
     // TO DO M4: static counter that drives auto-assigned order numbers
@@ -13,10 +15,12 @@ public class Smoothie {
     private String size;
     private double basePrice;
     private boolean isStudent;
+    private int orderNumber;
 
 
     // TO DO M3: private ArrayList<String> addOns
 
+    private java.util.ArrayList<String> addOns;
 
     // TO DO M4: private int orderNumber
 
@@ -40,6 +44,8 @@ public class Smoothie {
         this.size = size;
         this.basePrice = basePrice;
         this.isStudent = isStudent;
+        this.orderNumber = nextOrderNumber++;
+        addOns = new ArrayList<String>();
     }
 
     // TO DO M1: getters
@@ -53,6 +59,7 @@ public class Smoothie {
 
     // TO DO M3: append the given add-on to the addOns list
     public void addAddOn(String addOn) {
+        addOns.add(addOn);
 
     }
 
@@ -63,7 +70,24 @@ public class Smoothie {
     //   4. add 2.00 per add-on
     //   5. round to 2 decimal places: Math.round(x * 100.0) / 100.0
     public double getPrice() {
-        return 0.0;
+        double price = basePrice;
+
+        if(size.equals("S")){
+            price = price + 1.00;
+        }
+        else if(size.equals("M")){
+            price = price + 1.20;
+        }
+        else if(size.equals("L")){
+            price = price + 1.50;
+        }
+        else if(isStudent == true){
+            price = price * 0.90;
+        }
+
+        2.00 * addOns.size();
+
+        Math.round((price * 100.0) / 100.0);
     }
 
     // TO DO M5: one-line receipt.
@@ -76,6 +100,15 @@ public class Smoothie {
     //   - append " +<addon>" for each add-on; nothing if there are no add-ons
     @Override
     public String toString() {
-        return "";
+        return "#%03d" + getOrderNumber() + " [" + getSize() + "] " + getName()
+                +"........... " + "$%.2f" + getPrice();
+
+        if (isStudent == true) {
+            System.out.printf(" (Student)")
+        }
+
+        if (addOns.size() > 0) {
+            System.out.printf(" +" + addOns);
+        }
     }
 }
