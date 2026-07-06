@@ -15,21 +15,20 @@ public class Smoothie {
     private String size;
     private double basePrice;
     private boolean isStudent;
-    private int orderNumber;
 
 
     // TO DO M3: private ArrayList<String> addOns
 
-    private java.util.ArrayList<String> addOns;
+    private ArrayList<String> addOns;
 
     // TO DO M4: private int orderNumber
-
+    private int orderNumber;
 
     // TO DO M1: three-argument constructor.
     //   Set isStudent to false by default.
     //   Chain to the four-arg constructor with this(name, size, basePrice, false).
     public Smoothie(String name, String size, double basePrice) {
-        isStudent = false;
+        //isStudent = false;
         this(name, size, basePrice, false);
 
     }
@@ -49,13 +48,13 @@ public class Smoothie {
     }
 
     // TO DO M1: getters
-    public String getName()      { return null; }
-    public String getSize()      { return null; }
-    public double getBasePrice() { return 0.0;  }
-    public boolean isStudent()   { return false; }
+    public String getName()      { return name; }
+    public String getSize()      { return size; }
+    public double getBasePrice() { return basePrice;  }
+    public boolean isStudent()   { return isStudent; }
 
     // TO DO M4: getter for orderNumber
-    public int getOrderNumber()  { return 0; }
+    public int getOrderNumber()  { return orderNumber; }
 
     // TO DO M3: append the given add-on to the addOns list
     public void addAddOn(String addOn) {
@@ -76,18 +75,21 @@ public class Smoothie {
             price = price + 1.00;
         }
         else if(size.equals("M")){
-            price = price + 1.20;
+            price = price + 1.25;
         }
         else if(size.equals("L")){
             price = price + 1.50;
         }
-        else if(isStudent == true){
+
+        if(isStudent == true){
             price = price * 0.90;
         }
 
-        2.00 * addOns.size();
+        price = price + 2.00 * addOns.size();
 
-        Math.round((price * 100.0) / 100.0);
+        price = Math.round((price * 100.0) / 100.0);
+
+        return price;
     }
 
     // TO DO M5: one-line receipt.
@@ -100,15 +102,21 @@ public class Smoothie {
     //   - append " +<addon>" for each add-on; nothing if there are no add-ons
     @Override
     public String toString() {
-        return "#%03d" + getOrderNumber() + " [" + getSize() + "] " + getName()
-                +"........... " + "$%.2f" + getPrice();
+
+        StringBuilder receipt = new StringBuilder();
+
+        receipt.append(String.format("#%03d", orderNumber));
+        receipt.append(" [").append(size).append("] ").append(name);
+        receipt.append(" ........... ");
+        receipt.append(String.format("$%.2f", getPrice()));
 
         if (isStudent == true) {
-            System.out.printf(" (Student)")
+           receipt.append(" (Student)");
         }
 
-        if (addOns.size() > 0) {
-            System.out.printf(" +" + addOns);
-        }
+       for  (String addOn : addOns) {
+           receipt.append(" +").append(addOn);
+       }
+       return receipt.toString();
     }
 }
